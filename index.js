@@ -10,6 +10,7 @@ var slideNumber = 0;
 let remove = () => {
     slides.forEach((slide) => {
     slide.classList.remove("active");
+    slide.classList.remove("nextSlide");
   });
     slideIcons.forEach((slideIcon) => {
     slideIcon.classList.remove("active");
@@ -22,6 +23,10 @@ let active = () => {
   slideIcons[slideNumber].classList.add("active");
 }
 
+// set next slide
+let nextSlide = slideNumber++;
+slides[nextSlide].classList.add("nextSlide");
+
 // change next slide
 let next = () => {
   remove();
@@ -33,6 +38,7 @@ let next = () => {
   }
   
   active();
+  reset();
 }
 
 //image slider next button
@@ -51,7 +57,14 @@ prevBtn.addEventListener("click", () => {
   }
 
   active();
+  reset();
 });
+
+// reset slider interval
+let reset = () => {
+  clearInterval(playSlider);
+  repeater();
+}
 
 //image slider autoplay
 let playSlider;
