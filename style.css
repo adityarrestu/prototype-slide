@@ -148,16 +148,21 @@ body{
 .navigation-visibility .slide-icon{
   z-index: 999;
   background: rgba(255, 255, 255, 0.5);
-  width: 20px;
+  width: 10px;
   height: 10px;
   transform: translateY(-50px);
-  margin: 0 6px;
+  margin: 0 3px;
   border-radius: 2px;
   box-shadow: 0 5px 25px rgb(1 1 1 / 20%);
+  transition-delay: 1000ms;
+  transition: 1000ms;
 }
 
 .navigation-visibility .slide-icon.active{
   background: #4285F4;
+  width: 20px;
+  transition: 1000ms;
+  transition-delay: 300ms;
 }
 
 @media (max-width: 900px){
