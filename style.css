@@ -30,20 +30,24 @@ body{
   position: absolute;
   width: 100%;
   height: 100%;
-  opacity: 0%;
-  transition: 2s;
 }
 
-.slider .slide.active{
+.slider .slide .frame {
+  opacity: 0%;
+  transition: opacity 350ms linear;
+  transition-delay: 800ms;
+}
+
+.slider .slide.active .frame{
   z-index: 5;
   opacity: 100%;
-  transition: 2s;
+  /* transition: opacity 1000ms ease-in; */
 }
 
-.slider .slide.nextSlide {
+.slider .slide.nextSlide .frame {
   z-index: 4;
-  opacity: 70%;
-  transition: 1s;
+  opacity: 100%;
+  transition: opacity 1000ms ease-out;
 }
 
 .slider .slide img{
@@ -51,6 +55,34 @@ body{
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
+
+.slider .slide .poster {
+  z-index: 7;
+  position: absolute;
+  width: 360px;
+  height: 100%;
+  right: 100px;
+  opacity: 0%;
+  animation: moveout 1600ms ease-in forwards;
+  /* animation-delay: -500ms; */
+}
+
+.slider .slide.active .poster {
+  animation: movein 500ms ease-in-out forwards;
+  animation-delay: 500ms;
+}
+
+@keyframes movein {
+  0% {opacity: 0%; right: -400px;}
+  100% {opacity: 100%; right: 100px;}
+}
+
+@keyframes moveout {
+  0% {opacity: 100%; right: 100px;}
+  25% {opacity: 100%; right: 120px;}
+  60% {opacity: 0%; right: 400px;}
+  100% {opacity: 0%; right: 400px;}  
 }
 
 .slider .slide .info{
